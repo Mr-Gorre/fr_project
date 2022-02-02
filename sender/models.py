@@ -18,5 +18,5 @@ class Message(models.Model):
   created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
   updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
   status = models.CharField(max_length=8000)
-  client = models.ForeignKey(Client)
-  deliver = models.ForeignKey(Deliver)
+  client = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
+  deliver = models.ForeignKey(Deliver, on_delete=models.SET_NULL, null=True)
